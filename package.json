@@ -5,7 +5,7 @@
   "dependencies": {
     "caboose": "latest",
     "ejs": "0.7.1",
-    "caboose-model": "0.1.5",
+    "caboose-model": "0.1.6",
     "caboose-bootstrap": "0.0.1",
     "pg": "latest",
     "bcrypt": "latest",

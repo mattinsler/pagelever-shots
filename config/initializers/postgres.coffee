@@ -6,7 +6,7 @@ if Caboose.app.config.postgres?
     uri = require('url').parse config.url
     config = {}
     config.host = uri.hostname
-    config.port = uri.port if uri.port?
+    config.port = parseInt(uri.port) if uri.port?
     config.database = uri.pathname.replace /^\//g, ''
     [config.user, config.password] = uri.auth.split(':') if uri.auth?    
     
