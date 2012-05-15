@@ -9,7 +9,8 @@
     "caboose-bootstrap": "0.0.1",
     "pg": "latest",
     "bcrypt": "latest",
-    "caboose-model-delayed-render": "0.0.1"
+    "caboose-model-delayed-render": "0.0.1",
+    "moment": "latest"
   },
   "caboose-plugins": [
     "caboose-model",
