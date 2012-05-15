@@ -42,4 +42,4 @@ class UsersController extends ApplicationController
           shots_received: 0
         }, (err, user) =>
           return @redirect_to('/users/new', error: err.message) if err?
-          @redirect_to '/users', success: "What's up #{user.full_name}!"
+          @redirect_to '/users', success: "What's up!"
