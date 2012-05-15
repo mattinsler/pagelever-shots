@@ -1,0 +1,36 @@
+<section>
+  <div class="page-header">
+    <h1>Shot <%= shot._id %></h1>
+  </div>
+
+  <div class="row">
+    <div class="span12">
+      <form class="form-horizontal">
+        <fieldset>
+          <div class="control-group">
+            <label class="control-label" for="user">User</label>
+            <div class="controls">
+              <%- link_to(shot.user.email, '/users/' + shot.user.id) %>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="received_at">Received At</label>
+            <div class="controls">
+              <%= moment(shot.received_at).format('MM/DD/YYYY hh:mm:ss') %>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="taken_at">Taken At</label>
+            <div class="controls">
+              <% if (shot.taken_at) { %>
+                <%= moment(shot.taken_at).format('MM/DD/YYYY hh:mm:ss') %>
+              <% } else { %>
+                Not taken yet
+              <% } %>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</section>

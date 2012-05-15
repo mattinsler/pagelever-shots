@@ -1,0 +1,18 @@
+{
+  "name": "pagelever-shots",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "ejs": "0.7.1",
+    "caboose-model": "0.1.5",
+    "caboose-bootstrap": "0.0.1",
+    "pg": "latest",
+    "bcrypt": "latest",
+    "caboose-model-delayed-render": "0.0.1"
+  },
+  "caboose-plugins": [
+    "caboose-model",
+    "caboose-bootstrap",
+    "caboose-model-delayed-render"
+  ]
+}

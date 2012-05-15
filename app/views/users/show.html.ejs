@@ -1,0 +1,38 @@
+<section>
+  <div class="page-header">
+    <h1>User <%= user._id %></h1>
+  </div>
+
+  <div class="row">
+    <div class="span12">
+      <form class="form-horizontal">
+        <fieldset>
+          <div class="control-group">
+            <label class="control-label" for="pagelever_id">PageLever ID</label>
+            <div class="controls">
+              <%= user.pagelever_id %>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="email">Email</label>
+            <div class="controls">
+              <%= user.email %>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="shots_received">Shots Received</label>
+            <div class="controls">
+              <%= user.shots_received %>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="shots_taken">Shots Taken</label>
+            <div class="controls">
+              <%= user.shots_taken %>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</section>
