@@ -13,7 +13,7 @@ class ShotsController extends ApplicationController
   
   index: ->
     @shots = Shot.array()
-      
+    
     if @params.format is 'json'
       @render(json: @shots)
     else

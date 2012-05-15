@@ -14,7 +14,7 @@ class UsersController extends ApplicationController
     @users = User.array()
     
     if @params.format is 'json'
-      @render(json: {users: @users})
+      @render(json: @users)
     else
       @render()
   
@@ -28,18 +28,18 @@ class UsersController extends ApplicationController
 
   create: ->
     User.authenticate @body.email, @body.password, (err, user) =>
-      if err?
-        @flash.error = err.message
-        return @render 'new'
+      return @redirect_to('/users/new', error: err.message) if err?
+      return @redirect_to('/users/new', error: 'You are unable to register') unless user.admin
       User.where($or: [{pagelever_id: user.id}, {email: user.email}]).count (err, count) =>
-        if err?
-          @flash.error = err.message
-          return @render 'new'
-        if count > 0
-          @flash.error = 'That user is already registered'
-          return @render 'new'
+        return @redirect_to('/users/new', error: err.message) if err?
+        return @redirect_to('/users/new', error: 'You are already registered') if count > 0
         User.save {
           pagelever_id: user.id
           email: user.email
-        }, =>
-          @redirect_to '/users', success: "#{@body.email} has been successfully added!"
+          first_name: user.first_name
+          last_name: user.last_name
+          shots_taken: 0
+          shots_received: 0
+        }, (err, user) =>
+          return @redirect_to('/users/new', error: err.message) if err?
+          @redirect_to '/users', success: "What's up #{user.full_name}!"

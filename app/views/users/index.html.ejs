@@ -11,6 +11,7 @@
         <thead>
           <tr>
             <th>PageLever ID</th>
+            <th>Full Name</th>
             <th>Email</th>
             <th>Shots Taken</th>
             <th>Shots Received</th>
@@ -21,6 +22,7 @@
           <% users.forEach(function(user) { %>
             <tr>
               <td><%- link_to(user.pagelever_id, '/users/' + user._id) %></td>
+              <td><%= user.full_name %></td>
               <td><%= user.email %></td>
               <td><%= user.shots_taken %></td>
               <td><%= user.shots_received %></td>
