@@ -31,8 +31,15 @@ class UsersController extends ApplicationController
       if err?
         @flash.error = err.message
         return @render 'new'
-      User.save {
-        pagelever_id: user.id
-        email: user.email
-      }, =>
-        @redirect_to '/users', success: "#{@body.email} has been successfully added!"
+      User.where($or: [{pagelever_id: user.id}, {email: user.email}]).count (err, count) =>
+        if err?
+          @flash.error = err.message
+          return @render 'new'
+        if count > 0
+          @flash.error = 'That user is already registered'
+          return @render 'new'
+        User.save {
+          pagelever_id: user.id
+          email: user.email
+        }, =>
+          @redirect_to '/users', success: "#{@body.email} has been successfully added!"
